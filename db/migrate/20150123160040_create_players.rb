@@ -7,10 +7,10 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :gold
       t.integer :exp
       t.float :hp_max
-      t.float :hp_min
+      t.float :hp_actual
       t.float :damage
       t.boolean :atacable
-
+      t.float :defense
       t.timestamps null: false
     end
   end

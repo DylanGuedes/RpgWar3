@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20150123160040) do
     t.integer  "gold"
     t.integer  "exp"
     t.float    "hp_max"
-    t.float    "hp_min"
+    t.float    "hp_actual"
     t.float    "damage"
     t.boolean  "atacable"
+    t.float    "defense"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
