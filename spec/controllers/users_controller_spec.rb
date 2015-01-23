@@ -6,7 +6,7 @@ RSpec.describe UsersController, :type => :controller do
   end
 
   let(:invalid_attributes){ FactoryGirl.attributes_for :user, email: " ", password: " " }
-
+  let(:valid_attributes){ FactoryGirl.attributes_for :user, email: "novoemailtest@test.com", login: "umnovonome" }
   describe "GET" do
     describe "#new" do
       it "should return success" do
@@ -25,7 +25,7 @@ RSpec.describe UsersController, :type => :controller do
   describe "POST" do
     describe "#create" do
       context "with valid params" do
-        subject { post :create, user: @user }
+        subject { post :create, user: valid_attributes }
 
         it "should increase total number of users" do
           expect { subject }.to change(User, :count).by(1)
