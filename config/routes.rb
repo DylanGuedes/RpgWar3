@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   root 'display#index'
+  resources :users
+
+#users controller
+  get '/signup', to: 'users#new'
+
 
 #display controller
   get '/help', to: 'display#help'
