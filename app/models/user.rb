@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessor :password, :password_confirmation
-
   after_initialize :default_values
   def default_values
     self.player = Player.new
@@ -8,11 +6,11 @@ class User < ActiveRecord::Base
 
   has_one :player
 
-  before_save { email.downcase! }
+  before_save { self.email = email.downcase }
 
   #validates
   #name
-  validates :name, length: { maximum:50, minimum: 5 }
+  validates :name, length: { maximum:50, minimum: 2 }
 
   #email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -27,5 +25,5 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
 
-  #has_secure_password
+  has_secure_password
 end
