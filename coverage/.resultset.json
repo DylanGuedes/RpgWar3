@@ -271,6 +271,11 @@
         1,
         null,
         null,
+        1,
+        1,
+        1,
+        null,
+        null,
         null,
         null,
         null,
@@ -334,6 +339,10 @@
         1,
         null
       ],
+      "/home/dylan/rpg_try/app/helpers/sessions_helper.rb": [
+        1,
+        null
+      ],
       "/home/dylan/rpg_try/app/helpers/users_helper.rb": [
         1,
         null
@@ -352,6 +361,32 @@
         1,
         null,
         null,
+        1,
+        null
+      ],
+      "/home/dylan/rpg_try/spec/controllers/sessions_controller_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/dylan/rpg_try/app/controllers/sessions_controller.rb": [
         1,
         null
       ],
@@ -446,6 +481,22 @@
         1,
         null
       ],
+      "/home/dylan/rpg_try/spec/helpers/sessions_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null
+      ],
       "/home/dylan/rpg_try/spec/helpers/users_helper_spec.rb": [
         1,
         null,
@@ -475,15 +526,15 @@
         null,
         1,
         1,
-        17,
-        17,
-        17,
-        17,
-        17,
-        17,
-        17,
-        17,
-        17,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18,
         null,
         null
       ],
@@ -508,12 +559,12 @@
         1,
         1,
         1,
-        16,
+        17,
         null,
         null,
         1,
         null,
-        13,
+        14,
         null,
         null,
         null,
@@ -536,6 +587,6 @@
         null
       ]
     },
-    "timestamp": 1422103073
+    "timestamp": 1422103408
   }
 }
