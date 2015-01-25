@@ -5,6 +5,7 @@ module SessionsHelper
       redirect_to signin_path
     end
   end
+
   def sign_in user
     session[:user_id] = user.id
   end
@@ -20,6 +21,11 @@ module SessionsHelper
         @current_user = user
       end
     end
+  end
+
+  def current_player
+    a = current_user
+    @current_player = a.player
   end
 
   def signed_in?

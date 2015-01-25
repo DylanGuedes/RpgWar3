@@ -1,11 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
 
-  after_initialize :default_values
-  def default_values
-    self.player = Player.new
-  end
-
   has_one :player
 
   before_save { self.email = email.downcase }

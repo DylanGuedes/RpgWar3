@@ -3,7 +3,7 @@
 </br>
 </br>
 
-<% if current_user.player.rpg_class.nil? %>
+<% if !current_user.player.rpg_class.nil? %>
   <%= render 'world' %>
 <% else %>
   <%= render 'class_picker' %>
