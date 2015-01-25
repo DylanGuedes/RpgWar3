@@ -1,0 +1,13 @@
+<div class="row">
+  <% @itens.each do |item| %>
+    <div class="large-3 columns">
+      <center>
+        <h3>
+          <%= link_to "#{item.name}", '/rpg' %><br>
+          Price: <%= item.price %><br>
+          Damage: <%= item.damage %><br>
+          Defense: <%= item.defense %><br>
+        </h3>
+      </center>
+    </div>
+  <% end %>

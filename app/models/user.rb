@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
-
   has_one :player
 
   before_save { self.email = email.downcase }

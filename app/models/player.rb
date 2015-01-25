@@ -1,6 +1,8 @@
 class Player < ActiveRecord::Base
   belongs_to :user
 
+  has_many :items
+
   after_initialize :default_values
   def default_values
     self.damage = 15
