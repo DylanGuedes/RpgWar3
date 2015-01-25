@@ -13,10 +13,20 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <% if signed_in? && !current_user.player.rpg_class.nil? %>
+      <div class="row">
+        <div class="large-3 columns">
+          <%= render 'shared/current_player' %>
+        </div>
+        <div class="large-9 columns">
+          <%= yield %>
+        </div>
+    <% else %>
+      <%= render 'shared/messages' %>
+      <%= yield %>
+    <% end %>
 
-    <%= render 'shared/messages' %>
 
-    <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

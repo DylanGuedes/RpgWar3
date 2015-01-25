@@ -23,12 +23,12 @@ class RpgController < ApplicationController
   end
 
   def purchase_item
-    desired_item = CosmeticItem.find(params[:item_id])
-
+    cosmetic = CosmeticItem.find(params[:item_id])
+    desired_item = build_from_cosmetic(cosmetic)
     if current_player.render_gold_guard(desired_item) == true && current_player.render_restriction_guard(desired_item) == true
-      puts "#{desired_item}" * 50
       current_player.discount(desired_item)
       current_player.apply(desired_item)
+      current_player.save
       current_player.items.push(desired_item)
       flash[:notice] = "You purchased a #{desired_item.name}!"
     else
