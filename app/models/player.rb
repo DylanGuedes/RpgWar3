@@ -13,4 +13,13 @@ class Player < ActiveRecord::Base
     self.deaths = 0
     self.kills = 0
   end
+
+  def transform_class(id)
+    if id.to_i == 1
+      self.rpg_class = 'Warrior'
+    elsif id.to_i == 2
+      self.rpg_class = 'DK'
+    end
+     self.save
+  end
 end

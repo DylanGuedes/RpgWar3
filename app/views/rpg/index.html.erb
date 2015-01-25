@@ -1,0 +1,5 @@
+<% if current_user.player.rpg_class.nil? %>
+  <%= render 'world' %>
+<% else %>
+  <%= render 'class_picker' %>
+<% end %>
