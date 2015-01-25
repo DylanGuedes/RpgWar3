@@ -616,21 +616,21 @@ $include-html-global-classes: $include-html-classes;
 
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
-// $form-label-font-size: rem-calc(14);
+$form-label-font-size: rem-calc(20);
 // $form-label-font-weight: $font-weight-normal;
-// $form-label-line-height: 1.5;
+$form-label-line-height: 2.0;
 // $form-label-font-color: scale-color($black, $lightness: 30%);
 // $form-label-small-transform: capitalize;
 // $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
-// $input-font-size: rem-calc(14);
+$input-font-size: rem-calc(18);
 // $input-bg-color: $white;
 // $input-focus-bg-color: scale-color($white, $lightness: -2%);
 // $input-border-color: scale-color($white, $lightness: -20%);
 // $input-focus-border-color: scale-color($white, $lightness: -40%);
 // $input-border-style: solid;
-// $input-border-width: 1px;
+$input-border-width: 2px;
 // $input-border-radius: $global-radius;
 // $input-disabled-bg: $gainsboro;
 // $input-disabled-cursor: $cursor-default-value;
@@ -1361,7 +1361,7 @@ $include-html-global-classes: $include-html-classes;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #684D97;
+$topbar-bg-color: #000674;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1370,7 +1370,7 @@ $topbar-height: 80px;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-$topbar-title-font-size: rem-calc(20);
+$topbar-title-font-size: rem-calc(30);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: $oil;
@@ -1382,18 +1382,18 @@ $topbar-title-font-size: rem-calc(20);
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: $white;
-// $topbar-link-color-hover: $white;
-// $topbar-link-color-active: $white;
+//$topbar-link-color: $white;
+//$topbar-link-color-hover: $white;
+//$topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;
-$topbar-link-font-size: rem-calc(20);
-// $topbar-link-hover-lightness: -10%; // Darken by 10%
+$topbar-link-font-size: rem-calc(30);
+$topbar-link-hover-lightness: -5%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-color-hover: $charcoal;
-$topbar-link-bg-hover: #74607C;
+$topbar-link-bg-color-hover: #FDFF00;
+$topbar-link-bg-hover:  #3D2A6E;
 // $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-active-hover: scale-color(#B9AFAF, $lightness: -40%);
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: $topbar-height / 3;
