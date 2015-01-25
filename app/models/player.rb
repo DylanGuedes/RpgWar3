@@ -24,4 +24,29 @@ class Player < ActiveRecord::Base
     end
      self.save
   end
+
+  def render_restriction_guard(desired_item)
+    if desired_item.restriction.include?(self.rpg_class)
+      false
+    else
+      true
+    end
+  end
+
+  def render_gold_guard(desired_item)
+    if self.gold < desired_item.price
+      false
+    else
+      true
+    end
+  end
+
+  def apply(desired_item)
+    self.damage += desired_item.damage
+    self.defense += desired_item.defense
+  end
+
+  def discount(desired_item)
+    self.gold += desired_item.price
+  end
 end

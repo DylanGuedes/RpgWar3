@@ -36,17 +36,17 @@ ActiveRecord::Schema.define(version: 20150125214045) do
 
   create_table "players", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "deaths"
-    t.integer  "kills"
-    t.integer  "gold"
-    t.integer  "exp"
-    t.float    "hp_max"
-    t.float    "hp_actual"
-    t.float    "damage"
-    t.boolean  "atacable"
-    t.float    "defense"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "deaths",     default: 0
+    t.integer  "kills",      default: 0
+    t.integer  "gold",       default: 100
+    t.integer  "exp",        default: 0
+    t.float    "hp_max",     default: 100.0
+    t.float    "hp_actual",  default: 100.0
+    t.float    "damage",     default: 15.0
+    t.boolean  "atacable",   default: false
+    t.float    "defense",    default: 0.0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "rpg_class"
   end
 

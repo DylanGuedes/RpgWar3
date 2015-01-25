@@ -3,7 +3,7 @@
     <div class="large-3 columns">
       <center>
         <h3>
-          <%= link_to "#{item.name}", '/rpg' %><br>
+          <%= link_to "#{item.name}", { :controller => 'rpg', :action => 'purchase_item', :item_id => item.id }%><br>
           Price: <%= item.price %><br>
           Damage: <%= item.damage %><br>
           Defense: <%= item.defense %><br>
