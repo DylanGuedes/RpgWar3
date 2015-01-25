@@ -1,4 +1,5 @@
 <% if !current_user.player.atacable? %>
+  <center><h1>You are in the city! Enjoy, you are safe :)</h1></center>
   <div class="row">
     <div class="large-3 columns">
       <%= render 'store' %>
@@ -16,7 +17,7 @@
 <% else %>
   <div class="row">
     <div class="large-3 columns">
-      <%= link_to 'City', '/rpg/city' %>
+      <%= link_to 'City', { :controller => 'rpg', :action => 'go_city' } %>
     </div>
     <div class="large-3 columns">
       <%= link_to 'Attack', '/rpg/targets' %>

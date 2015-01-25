@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get '/rpg/class_picker/:class_picked' => 'rpg#class_picker'
   get '/rpg/store' => 'rpg#store'
   get '/rpg/purchase_item/:item_id' => 'rpg#purchase_item'
+  get '/rpg/go_city' => 'rpg#go_city'
+  get '/rpg/go_jungle' => 'rpg#go_jungle'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

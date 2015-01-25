@@ -15,11 +15,29 @@ class RpgController < ApplicationController
     render 'index'
   end
 
+  def go_jungle
+    current_player.atacable = true
+    current_player.save
+    render 'index'
+  end
+
+  def go_city
+    current_player.atacable = false
+    current_player.save
+    render 'index'
+  end
+
   def store
     render_guard
     render_player_guard
     @cosmetics = CosmeticItem.all
     @itens = Item.all
+  end
+
+  def jungle
+    render_guard
+    render_player_guard
+    current_player.enter_jungle
   end
 
   def purchase_item
