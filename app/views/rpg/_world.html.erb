@@ -1,7 +1,7 @@
 <% if !current_user.player.atacable? %>
   <div class="row">
     <div class="large-3 columns">
-      <%= link_to 'Store', '/rpg/store' %>
+      <%= render 'store' %>
     </div>
     <div class="large-3 columns">
       <%= link_to 'Chat', '/rpg/chat' %>
