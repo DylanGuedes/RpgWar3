@@ -18,6 +18,7 @@ class RpgController < ApplicationController
   def store
     render_guard
     render_player_guard
+    @cosmetics = CosmeticItem.all
     @itens = Item.all
   end
 end
