@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   post   '/signin'   => 'sessions#create'
   delete '/signout'  => 'sessions#destroy'
 
+  # rpg controller
+  get '/rpg' => 'rpg#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

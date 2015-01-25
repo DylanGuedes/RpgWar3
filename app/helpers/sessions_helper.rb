@@ -1,4 +1,10 @@
 module SessionsHelper
+  def render_guard
+    if !signed_in?
+      flash[:notice] = 'Please, signin!'
+      redirect_to signin_path
+    end
+  end
   def sign_in user
     session[:user_id] = user.id
   end
