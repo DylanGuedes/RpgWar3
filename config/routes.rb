@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get '/rpg/purchase_item/:item_id' => 'rpg#purchase_item'
   get '/rpg/go_city' => 'rpg#go_city'
   get '/rpg/go_jungle' => 'rpg#go_jungle'
+  get '/rpg/targets' => 'rpg#targets'
+  get '/rpg/attack_target/:target_id' => 'rpg#attack_target'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

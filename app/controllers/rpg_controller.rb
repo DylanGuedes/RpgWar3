@@ -10,9 +10,44 @@ class RpgController < ApplicationController
   def world
   end
 
+  def attack_target
+    render_guard
+    render_player_guard
+    if current_player.atacable
+      target = Player.find(params[:target_id])
+      battle(current_player, target)
+      render 'index'
+    else
+      flash[:notice] = "You must be in jungle to attack other players! :("
+    end
+  end
+
+  def battle(player1, player2)
+    while !player1.is_dead? || !player2.is_dead? do
+      player2.hp_actual -= (player1.damage - player2.defense)
+      player1.save
+      player2.save
+      if player2.is_dead?
+        break;
+      else
+        player1.hp_actual -= (player2.damage - player1.defense)
+        player1.save
+        player2.save
+      end
+    end
+  end
+
   def class_picker
     current_player.transform_class(params[:class_picked])
     render 'index'
+  end
+
+  def targets
+    if current_player.atacable == true
+      @targets = Player.where(atacable: true)
+    else
+      flash[:notice] = "You must be in the jungle to attack other players! :("
+    end
   end
 
   def go_jungle

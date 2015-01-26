@@ -1,0 +1,5 @@
+<% @targets.each do |target| %>
+  <% if target != current_player %>
+    <%= link_to "Atacar #{target.user.name}", { :controller => 'rpg', :action => 'attack_target', :target_id => "#{target.id}" } %>
+  <% end %>
+<% end %>

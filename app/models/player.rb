@@ -20,6 +20,14 @@ class Player < ActiveRecord::Base
     end
   end
 
+  def is_dead?
+    if self.hp_actual < 0
+      return true
+    else
+      false
+    end
+  end
+
   def render_restriction_guard(desired_item)
     if desired_item.restriction && desired_item.restriction.include?(self.rpg_class)
       false
