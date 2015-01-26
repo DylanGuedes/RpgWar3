@@ -42,11 +42,11 @@ class ApplicationController < ActionController::Base
   def new_turn
     a = Player.where(atacable: true)
     a.each do |k|
+      k.safe_tick += 1
       k.exp += 150
       k.exp += k.exp*0.1
       k.gold += 150
-      k.actual_hp -+ k.actual_hp*0.1
-      k.save
+      k.hp_actual -= k.hp_actual*0.1
       k.save
     end
   end

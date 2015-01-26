@@ -17,7 +17,9 @@
 <% else %>
   <div class="row">
     <div class="large-3 columns">
-      <%= link_to 'City', { :controller => 'rpg', :action => 'go_city' } %>
+      <% if current_player.can_go_city? %>
+        <%= link_to 'City', { :controller => 'rpg', :action => 'go_city' } %>
+      <% end %>
     </div>
     <div class="large-3 columns">
       <%= link_to 'Attack', '/rpg/targets' %>

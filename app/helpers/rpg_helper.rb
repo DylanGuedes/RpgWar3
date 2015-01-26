@@ -14,11 +14,12 @@ module RpgHelper
     return desired_item
   end
 
-  def level_update(current_player)
+  def level_update(p)
     exp_array = [300, 900, 1500, 5000, 10000, 150000, 2000000]
-    if exp_array[current_player.level] < current_player.exp
-      current_player.level += 1
-      current_player.save
+    if exp_array[p.level] < p.exp
+      p.level += 1
+      p.hp_max += p.hp_max*0.3
+      p.save
     end
   end
 

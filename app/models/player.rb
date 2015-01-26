@@ -12,6 +12,14 @@ class Player < ActiveRecord::Base
      self.save
   end
 
+  def can_go_city?
+    if self.safe_tick > 5
+      return true
+    else
+      return false
+    end
+  end
+
   def render_restriction_guard(desired_item)
     if desired_item.restriction && desired_item.restriction.include?(self.rpg_class)
       false
@@ -39,6 +47,13 @@ class Player < ActiveRecord::Base
 
   def discount(desired_item)
     self.gold -= desired_item.price
+  end
+
+  def update_turn
+    self.safe_tick += 1
+    self.exp += 150 + self.exp*0.1
+    self.gold += 150
+    self.hp_actual -= self.hp_actual*0.1
   end
 
 
