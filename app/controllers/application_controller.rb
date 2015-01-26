@@ -49,5 +49,9 @@ class ApplicationController < ActionController::Base
       k.hp_actual -= k.hp_actual*0.1
       k.save
     end
+    b = Player.where(atacable: false)
+    b.each do |r|
+      r.restoration
+    end
   end
 end

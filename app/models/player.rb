@@ -20,6 +20,15 @@ class Player < ActiveRecord::Base
     end
   end
 
+  def restoration
+    if self.hp_actual + self.hp_max * 0.2 < self.hp_max
+      self.hp_actual += self.hp_max * 0.2
+    else
+      self.hp_actual = hp_max
+    end
+    self.save
+  end
+
   def is_dead?
     if self.hp_actual < 0
       return true

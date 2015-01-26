@@ -28,9 +28,19 @@ class RpgController < ApplicationController
       player1.save
       player2.save
       if player2.is_dead?
+        player1.exp += player2.exp*0.5
+        player1.kills += 1
+        player2.deaths += 1
+        player1.save
+        player2.save
         break;
       else
         player1.hp_actual -= (player2.damage - player1.defense)
+        if player1.is_dead?
+          player2.exp += player1.exp*0.5
+          player2.kills += 1
+          player1.deaths += 1
+        end
         player1.save
         player2.save
       end
