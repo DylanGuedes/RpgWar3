@@ -28,6 +28,10 @@ class Player < ActiveRecord::Base
     end
   end
 
+  def enter_jungle
+    self.atacable = true
+  end
+
   def apply(desired_item)
     self.damage += desired_item.damage
     self.defense += desired_item.defense
@@ -36,4 +40,6 @@ class Player < ActiveRecord::Base
   def discount(desired_item)
     self.gold -= desired_item.price
   end
+
+
 end

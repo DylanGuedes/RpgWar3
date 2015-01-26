@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125214045) do
+ActiveRecord::Schema.define(version: 20150125233642) do
 
   create_table "cosmetic_items", force: :cascade do |t|
     t.integer  "price"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150125214045) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "rpg_class"
+    t.integer  "level",      default: 1
   end
 
   create_table "users", force: :cascade do |t|

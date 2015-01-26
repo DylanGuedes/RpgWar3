@@ -13,4 +13,19 @@ module RpgHelper
     desired_item.price = cosmetic_item.price
     return desired_item
   end
+
+  def level_update(current_player)
+    exp_array = [300, 900, 1500, 5000, 10000, 150000, 2000000]
+    if exp_array[current_player.level] < current_player.exp
+      current_player.level += 1
+      current_player.save
+    end
+  end
+
+  def check_death(current_player)
+    if current_player.hp_actual < 0
+      current_player.atacable = false
+      current_player.save
+    end
+  end
 end

@@ -1,8 +1,11 @@
 <br><br><br><br>
-  <h6>
+  <h4>
     Exp: <%= current_player.exp %><br>
     Class: <%= current_player.rpg_class %><br>
     Damage: <%= current_player.damage %><br>
     Defense: <%= current_player.defense %><br>
     Gold: <%= current_player.gold %><br>
-  </h6>
+    HP: [<%= current_player.hp_max %>  /  <%= current_player.hp_actual %>]<br>
+    K/D: [<%= current_player.kills %>  /  <%= current_player.deaths %>]<br>
+    Level: <%= current_player.level %>
+  </h4>

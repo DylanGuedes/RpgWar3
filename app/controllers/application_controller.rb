@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
+  include RpgHelper
+
 
   # def turn_tick
   #   last_tick = Time.now
@@ -19,7 +21,20 @@ class ApplicationController < ActionController::Base
       while true do
         puts Time.now # or call tick function
         new_turn
-        sleep 10
+        sleep 100
+      end
+    end
+  end
+
+  def level_ticks
+    Thread.new do
+      while true do
+        a = Player.all
+        a.each do |p|
+          level_update(p)
+          check_death(p)
+        end
+        sleep 5
       end
     end
   end
@@ -30,6 +45,8 @@ class ApplicationController < ActionController::Base
       k.exp += 150
       k.exp += k.exp*0.1
       k.gold += 150
+      k.actual_hp -+ k.actual_hp*0.1
+      k.save
       k.save
     end
   end

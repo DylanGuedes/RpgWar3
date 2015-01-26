@@ -16,9 +16,14 @@ class RpgController < ApplicationController
   end
 
   def go_jungle
-    current_player.atacable = true
-    current_player.save
-    render 'index'
+    if current_player.hp_actual < 0
+      flash[:error] = "Você está morto! :("
+      render 'index'
+    else
+      current_player.atacable = true
+      current_player.save
+      render 'index'
+    end
   end
 
   def go_city
