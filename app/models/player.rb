@@ -1,8 +1,9 @@
 class Player < ActiveRecord::Base
   belongs_to :user
-
+  #has_many :assignments
   has_many :items
-
+  #has_many :battles, through: assignments
+  has_many :battles
   def transform_class(id)
     if id.to_i == 1
       self.rpg_class = 'Warrior'
