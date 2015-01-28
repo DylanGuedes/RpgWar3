@@ -43,6 +43,12 @@ class Battle < ActiveRecord::Base
     end
   end
 
+  def render_save
+    self.starter.save
+    self.target.save
+    self.save
+  end
+
   # methods that don't need refactor below:
   def over?
     if self.target.is_dead? || self.starter.is_dead?
@@ -65,6 +71,7 @@ class Battle < ActiveRecord::Base
     self.target = target
     self.battle_log = "Battle started by #{starter.user.name}! The target is #{target.user.name}! \n"
     self.draw = false
+    self.battle_time = Time.now
   end
 
   def who_won?

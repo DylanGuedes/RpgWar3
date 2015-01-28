@@ -23,6 +23,7 @@ class RpgController < ApplicationController
         i += 1
         battle.turn i
       end
+      battle.render_save
       render 'index'
     else
       flash[:notice] = "You must be in jungle to attack other players! :("
