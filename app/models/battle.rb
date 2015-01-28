@@ -3,6 +3,7 @@ class Battle < ActiveRecord::Base
   #has_many :players, through: assignments
   #has_many :assignments
   # has_and_belongs_to_many :players
+  MAX_TURNS = 4
 
   belongs_to :player # it's actually the starter of the fight.
 
@@ -13,7 +14,7 @@ class Battle < ActiveRecord::Base
     else
       self.battle_log += "\n#{other.user.name} has #{other.hp_actual} HP!"
       other.hp_actual -= one.damage - other.defense
-      self.battle_log += "\n#{other.user.name} received #{one.damage} - #{other.defense} damage!"
+      self.battle_log += "\n#{other.user.name} received #{one.damage - other.defense} damage!"
       self.battle_log += "\n#{other.user.name} has now #{other.hp_actual} HP!\n"
       if over?
         render_win who_won?, who_lost?
@@ -35,6 +36,8 @@ class Battle < ActiveRecord::Base
         if time == MAX_TURNS
           self.draw = true
           true
+        else
+          false
         end
       end
     end
@@ -42,7 +45,7 @@ class Battle < ActiveRecord::Base
 
   # methods that don't need refactor below:
   def over?
-    if has_death?
+    if self.target.is_dead? || self.starter.is_dead?
       true
     else
       false
@@ -61,6 +64,7 @@ class Battle < ActiveRecord::Base
     self.starter = starter
     self.target = target
     self.battle_log = "Battle started by #{starter.user.name}! The target is #{target.user.name}! \n"
+    self.draw = false
   end
 
   def who_won?

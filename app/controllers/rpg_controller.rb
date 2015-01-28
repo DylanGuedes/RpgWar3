@@ -21,7 +21,7 @@ class RpgController < ApplicationController
       i = 0
       MAX_TURNS.times do
         i += 1
-        battle.turn starter, target, i
+        battle.turn i
       end
       render 'index'
     else
