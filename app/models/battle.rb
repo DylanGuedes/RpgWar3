@@ -1,70 +1,91 @@
 class Battle < ActiveRecord::Base
+
   #has_many :players, through: assignments
-#has_many :assignments
-#  has_and_belongs_to_many :players
+  #has_many :assignments
+  # has_and_belongs_to_many :players
 
   belongs_to :player # it's actually the starter of the fight.
 
-  def victory first, second
-    if first.is_dead?
-      first.deaths += 1
-      second.kills += 1
-      self.battle_log += "The player #{second.user.name} won the battle."
-      render_win first
+  def cycle one, other
+    if over?
+      render_win who_won?, who_lost?
+      true
     else
-      second.deaths += 1
-      first.kills += 1
-      self.battle_log += "The player #{first.user.name} won the battle."
-      render_win second
-    end
-    first.save
-    second.save
-    self.save
-  end
-
-  def render_win player
-    player.exp += player.exp*0.25
-    player.gold += player.gold*0.25
-  end
-
-
-
-  def turn first, second, time
-    if self.battle_log.nil?
-      self.battle_log = ""
-    end
-    self.battle_log += "Turn #{time}\n ********** \n!"
-    if over?(first, second)
-      victory first, second
-      false
-    else
-      puts self.battle_log
-      puts battle_log
-      self.battle_log += "\n#{second.user.name} has #{second.hp_actual}!"
-      second.hp_actual -= first.damage - second.defense
-      self.battle_log += "\n#{second.user.name} taken #{first.damage} - #{second.defense}!"
-      self.battle_log += "\n#{second.user.name} has now #{second.hp_actual} HP!"
-      if over? first, second
-       victory first, second
+      self.battle_log += "\n#{other.user.name} has #{other.hp_actual} HP!"
+      other.hp_actual -= one.damage - other.defense
+      self.battle_log += "\n#{other.user.name} received #{one.damage} - #{other.defense} damage!"
+      self.battle_log += "\n#{other.user.name} has now #{other.hp_actual} HP!\n"
+      if over?
+        render_win who_won?, who_lost?
+        true
       else
-        self.battle_log += "\n#{first.user.name} has #{first.hp_actual}!"
-        first.hp_actual -= second.damage - first.defense
-        self.battle_log += "\n#{first.user.name} taken #{second.damage} - #{first.defense}!"
-        self.battle_log += "\n#{first.user.name} has now #{first.hp_actual} HP!"
+        false
+      end
+    end
+  end
 
-        if over? first, second
-         victory first, second
+  def turn time
+    self.battle_log += "\nTurn #{time}\n ********** \n!"
+    if cycle self.starter, self.target
+      true
+    else
+      if cycle self.target, self.starter
+        true
+      else
+        if time == MAX_TURNS
+          self.draw = true
+          true
         end
       end
     end
   end
 
   # methods that don't need refactor below:
+  def over?
+    if has_death?
+      true
+    else
+      false
+    end
+  end
+
   def draw?
     return self.draw
   end
 
   def has_death?        #if there's a dead player, the battle isn't a draw.
     !self.draw? ? true : false
+  end
+
+  def setup starter, target
+    self.starter = starter
+    self.target = target
+    self.battle_log = "Battle started by #{starter.user.name}! The target is #{target.user.name}! \n"
+  end
+
+  def who_won?
+    if self.starter.hp_actual > 0
+      return self.starter
+    else
+      return self.target
+    end
+  end
+
+  def who_lost?
+    if self.starter.hp_actual < 0
+      return self.starter
+    else
+      return self.target
+    end
+  end
+
+  def render_win winner, loser
+    self.winner = winner
+    self.loser = loser
+    winner.kills += 1
+    loser.deaths += 1
+    self.battle_log += "The player #{winner.user.name} won the battle."
+    self.winner.exp += loser.exp*0.25
+    self.gold += loser.gold*0.25 + 100
   end
 end

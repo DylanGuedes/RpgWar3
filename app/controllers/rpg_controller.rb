@@ -13,46 +13,21 @@ class RpgController < ApplicationController
   def attack_target
     render_guard
     render_player_guard
-    if current_player.atacable
+    if current_player.atacable #he can start the battle!
       target = Player.find(params[:target_id])
-      battle = Battle.new(current_player, target)
+      starter = current_player
+      battle = Battle.new
+      battle.setup starter, target
       i = 0
-      4.times do
+      MAX_TURNS.times do
         i += 1
-        battle.turn current_player, target, i
-        break if battle.over?
+        battle.turn starter, target, i
       end
       render 'index'
     else
       flash[:notice] = "You must be in jungle to attack other players! :("
     end
   end
-
-  # def battle(player1, player2)
-
-  #   while !player1.is_dead? || !player2.is_dead? do
-  #     player2.hp_actual -= (player1.damage - player2.defense)
-  #     player1.save
-  #     player2.save
-  #     if player2.is_dead?
-  #       player1.exp += player2.exp*0.5
-  #       player1.kills += 1
-  #       player2.deaths += 1
-  #       player1.save
-  #       player2.save
-  #       break;
-  #     else
-  #       player1.hp_actual -= (player2.damage - player1.defense)
-  #       if player1.is_dead?
-  #         player2.exp += player1.exp*0.5
-  #         player2.kills += 1
-  #         player1.deaths += 1
-  #       end
-  #       player1.save
-  #       player2.save
-  #     end
-  #   end
-  # end
 
   def class_picker
     current_player.transform_class(params[:class_picked])

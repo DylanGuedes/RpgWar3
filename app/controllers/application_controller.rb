@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include RpgHelper
 
+  MAX_TURNS = 4
 
   # def turn_tick
   #   last_tick = Time.now
