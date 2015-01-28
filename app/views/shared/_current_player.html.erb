@@ -9,3 +9,4 @@
     K/D: [<%= current_player.kills %>  /  <%= current_player.deaths %>]<br>
     Level: <%= current_player.level %>
   </h4>
+  <%= link_to 'Battles played by you', '/rpg/find_battles/'+current_player.id.to_s %>
