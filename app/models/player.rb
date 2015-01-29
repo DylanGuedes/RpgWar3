@@ -10,6 +10,14 @@ class Player < ActiveRecord::Base
     self.save
   end
 
+  def playable?
+    if self.rpg_class == nil
+      false
+    else
+      true
+    end
+  end
+
   def battles_started
     battles = Battle.where(:starter => self)
     return battles

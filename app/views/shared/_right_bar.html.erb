@@ -1,0 +1,8 @@
+<% if signed_in? %>
+  <% if current_player.playable? %>
+    <div class="progress large-12 alert" title = "Hp Max">
+      <span class="meter" style="width: <%= current_player.hp_percentual %>%" title="Hp Actual"></span>
+    </div>
+  <% end %>
+  <%= render '/messages/index' %>
+<% end %>
