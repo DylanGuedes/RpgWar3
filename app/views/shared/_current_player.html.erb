@@ -1,12 +1,24 @@
 <br><br><br><br>
-  <h4>
-    Exp: <%= current_player.exp %><br>
-    Class: <%= current_player.rpg_class %><br>
-    Damage: <%= current_player.damage %><br>
-    Defense: <%= current_player.defense %><br>
-    Gold: <%= current_player.gold %><br>
-    HP: [<%= current_player.hp_max %>  /  <%= current_player.hp_actual %>]<br>
-    K/D: [<%= current_player.kills %>  /  <%= current_player.deaths %>]<br>
-    Level: <%= current_player.level %>
-  </h4>
+<div class="player">
+<h4>
+  <h2><%= current_user.name %>, level <%= current_player.level %></h2>
+  <h1>
+    <div class="player">
+      <%= image_tag('bleeding-heart.png') %><%= "  #{current_player.kills}" %>
+      <%= image_tag('skull-crack.png') %><%= "  #{current_player.deaths}" %>
+    </div>
+  <%= image_tag('bowman.png') %> <%= current_player.exp %>
+  <%= image_tag('gold-bar.png') %> <%= current_player.gold %><br>
+
+  <%= image_tag('wood-axe.png') %>  <%= current_player.damage %>
+  <%= image_tag('shield.png') %>  <%= current_player.defense %><br>
+    </h1>
+  <h2>
+  Class: <%= current_player.rpg_class %><br>
+  HP: [<%= current_player.hp_max %>  /  <%= current_player.hp_actual %>]<br>
+</h2>
+<h3>
   <%= link_to 'Battles played by you', '/rpg/find_battles/'+current_player.id.to_s %>
+  </h3>
+</h4>
+</div>

@@ -3,7 +3,6 @@ class Player < ActiveRecord::Base
   #has_many :assignments
   has_many :items
   #has_many :battles, through: assignments
-  has_many :battles
   def transform_class(id)
     if id.to_i == 1
       self.rpg_class = 'Warrior'
@@ -11,6 +10,15 @@ class Player < ActiveRecord::Base
       self.rpg_class = 'DK'
     end
      self.save
+  end
+
+  def battles_started
+    battles = Battle.where(:starter => self)
+    return battles
+  end
+
+  def battles_targeted
+    battles = Battle.where(:target => self)
   end
 
   def can_go_city?
