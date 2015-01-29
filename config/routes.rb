@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'display#index'
+  root 'messages#index'
   resources :users, :only => [:create, :show]
   resources :comments, only: [:new, :create]
+  resources :messages
 #users controller
   get '/signup', to: 'users#new'
 
