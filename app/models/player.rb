@@ -1,16 +1,22 @@
 class Player < ActiveRecord::Base
+  exp_array = [300, 900, 1500, 5000, 10000, 150000, 2000000]
   belongs_to :user
   #has_many :assignments
   has_many :items
   #has_many :battles, through: assignments
-  has_many :battles
   def transform_class(id)
-    if id.to_i == 1
-      self.rpg_class = 'Warrior'
-    elsif id.to_i == 2
-      self.rpg_class = 'DK'
-    end
-     self.save
+    picked_class = PickableClass.find(id)
+    self.rpg_class = picked_class.name
+    self.save
+  end
+
+  def battles_started
+    battles = Battle.where(:starter => self)
+    return battles
+  end
+
+  def battles_targeted
+    battles = Battle.where(:target => self)
   end
 
   def can_go_city?
@@ -72,6 +78,17 @@ class Player < ActiveRecord::Base
     self.exp += 150 + self.exp*0.1
     self.gold += 150
     self.hp_actual -= self.hp_actual*0.1
+  end
+
+  def hp_percentual
+    x = 100 * self.hp_actual / self.hp_max
+    return x
+  end
+
+  def exp_percentual
+    exp_needed = exp_array[self.level+1]
+    x = 100 * self.exp / exp_needed
+    return x
   end
 
 

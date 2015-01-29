@@ -5,8 +5,6 @@ class Battle < ActiveRecord::Base
   # has_and_belongs_to_many :players
   MAX_TURNS = 4
 
-  belongs_to :player # it's actually the starter of the fight.
-
   def cycle one, other
     if over?
       render_win who_won?, who_lost?
@@ -25,12 +23,53 @@ class Battle < ActiveRecord::Base
     end
   end
 
+  def target
+    result = Player.find(self.target_id)
+    return result
+  end
+
+  def target=player
+    self.target_id = player.id
+  end
+
+  def starter
+    result = Player.find(self.starter_id)
+    return result
+  end
+
+  def starter=player
+    self.starter_id = player.id
+  end
+
+  def winner=player
+    self.winner_id = player.id
+  end
+
+  def winner
+    result = Player.find(self.winner_id)
+    return result
+  end
+
+  def loser=player
+    self.loser_id = player.id
+  end
+
+  def loser
+    result = Player.find(self.loser_id)
+    return result
+  end
+
+  def players
+    a = [starter, target]
+    return a
+  end
+
   def turn time
     self.battle_log += "\nTurn #{time}\n ********** \n!"
-    if cycle self.starter, self.target
+    if cycle starter, target
       true
     else
-      if cycle self.target, self.starter
+      if cycle target, starter
         true
       else
         if time == MAX_TURNS
@@ -43,15 +82,16 @@ class Battle < ActiveRecord::Base
     end
   end
 
+
   def render_save
-    self.starter.save
-    self.target.save
+    starter.save
+    target.save
     self.save
   end
 
   # methods that don't need refactor below:
   def over?
-    if self.target.is_dead? || self.starter.is_dead?
+    if target.is_dead? || starter.is_dead?
       true
     else
       false
@@ -67,36 +107,36 @@ class Battle < ActiveRecord::Base
   end
 
   def setup starter, target
-    self.starter = starter
-    self.target = target
+    self.starter_id = starter.id
+    self.target_id = target.id
     self.battle_log = "Battle started by #{starter.user.name}! The target is #{target.user.name}! \n"
     self.draw = false
     self.battle_time = Time.now
   end
 
   def who_won?
-    if self.starter.hp_actual > 0
-      return self.starter
+    if starter.hp_actual > 0
+      return starter
     else
-      return self.target
+      return target
     end
   end
 
   def who_lost?
-    if self.starter.hp_actual < 0
-      return self.starter
+    if starter.hp_actual < 0
+      return starter
     else
-      return self.target
+      return target
     end
   end
 
-  def render_win winner, loser
-    self.winner = winner
-    self.loser = loser
+  def render_win player_winner, player_loser
+    winner = player_winner
+    loser = player_loser
     winner.kills += 1
     loser.deaths += 1
     self.battle_log += "The player #{winner.user.name} won the battle."
-    self.winner.exp += loser.exp*0.25
-    self.gold += loser.gold*0.25 + 100
+    winner.exp += loser.exp*0.25
+    winner.gold += loser.gold*0.25 + 100
   end
 end

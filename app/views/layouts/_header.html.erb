@@ -1,22 +1,27 @@
-<nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-  <section class="top-bar-section">
-    <ul class="right">
-      <% if !signed_in? %>
-        <li><%= link_to 'Sign In', signin_path %></li>
-        <li><%= link_to 'Sign Up', signup_path %></li>
-      <% else %>
-        <li><%= link_to "Profile", current_user %></li>
-        <li><%= link_to "Settings", '#' %></li>
-        <li><%= link_to "#{current_user.name}", current_user %>
-        <li><%= link_to 'Sign Out', signout_path, method: "delete" %></li>
-      <% end %>
-    </ul>
-    <ul class="left">
-      <li><%= link_to 'Home', root_path %></li>
-    </ul>
-    <ul class="center">
-      <li><%= link_to 'RPG', rpg_path %></li>
-    </ul>
-  </section>
-  </nav>
+<br>
+<div class="row">
+  <div class="small-6 columns">
+    <%= link_to 'Home', root_path, class: "button success round large" %>
+    <%= link_to 'RPG', rpg_path, class: "button success round large" %>
+    <div class="large-6 columns">
+   <div class="progress large-12">
+  <span class="meter" style="width: <%= current_player.exp %>%"></span>
+  </div>
 </div>
+
+  </div>
+  <div class="large-6 columns">
+    <% if !signed_in? %>
+      <%= link_to 'Sign In', signin_path, class: "button success round large" %>
+      <%= link_to 'Sign Up', signup_path, class: "button success round large" %>
+    <% else %>
+      <%= link_to image_tag('profile_settings.png'), url_for('/users/edit'), :class => 'quick', :remote => true, :title => "Change your account options!" %>
+      <%= link_to "#{current_user.name}", current_user, class: "button success round large" %>
+      <%= link_to 'Sign Out', signout_path, method: "delete", class: "button success round large" %>
+    <% end %>
+    </div>
+    </div>
+
+  </ul>
+
+

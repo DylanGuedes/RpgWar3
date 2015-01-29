@@ -7,26 +7,26 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "vendor/modernizr", "http://localhost:9292/faye.js" %>
     <%= csrf_meta_tags %>
   </head>
-
-  <body>
     <%= render 'layouts/header' %>
+    <body>
     <% if signed_in? && !current_user.player.rpg_class.nil? %>
       <div class="row">
-        <div class="large-3 columns">
+        <div class="large-4 columns">
           <%= render 'shared/current_player' %>
         </div>
-        <div class="large-9 columns">
-          <%= yield %>
+        <div class="large-8 columns">
+        <div class="random">
+            <%= yield %>
         </div>
     <% else %>
       <%= render 'shared/messages' %>
       <%= yield %>
     <% end %>
 
-
     <%= javascript_include_tag "application" %>
   </body>
+  </div>
 </html>

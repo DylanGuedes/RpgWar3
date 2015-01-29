@@ -1,0 +1,307 @@
+
+---
+users:
+  columns:
+  - id
+  - name
+  - email
+  - login
+  - created_at
+  - updated_at
+  - password_digest
+  - remember_digest
+  records: 
+  - - 1
+    - user001
+    - user001@user001.com
+    - user001
+    - '2015-01-28 19:58:21.825484'
+    - '2015-01-28 19:58:21.825484'
+    - "$2a$10$jAdOgzynBtHZcM2RkSTyeOngOi8IGVPT5fMoxzuDAU13.1jguyruK"
+    - 
+  - - 2
+    - user002
+    - user002@user002.com
+    - user002
+    - '2015-01-28 19:58:40.289284'
+    - '2015-01-28 19:58:40.289284'
+    - "$2a$10$wtE/oHZ1xQOs.umicEoxy.0TLQoQM7TuneJ.4W/0zkKGuMkmzEUPe"
+    - 
+  - - 3
+    - Dylan Guedes
+    - djmgguedes@gmail.com
+    - DylanGuedes
+    - '2015-01-29 11:23:51.723398'
+    - '2015-01-29 11:23:51.723398'
+    - "$2a$10$6NYn8AmiBo6kjo6HM5Hia.18HSBQNO4TT5SmYMfptDOwBNfnp1jau"
+    - 
+
+---
+players:
+  columns:
+  - id
+  - user_id
+  - deaths
+  - kills
+  - gold
+  - exp
+  - hp_max
+  - hp_actual
+  - damage
+  - atacable
+  - defense
+  - created_at
+  - updated_at
+  - rpg_class
+  - level
+  - safe_tick
+  records: 
+  - - 1
+    - 1
+    - 7
+    - 0
+    - 100
+    - 0
+    - 100.0
+    - 40.0
+    - 15.0
+    - true
+    - 0.0
+    - '2015-01-28 19:58:22.001541'
+    - '2015-01-29 00:36:19.430247'
+    - Warrior
+    - 1
+    - 0
+  - - 2
+    - 2
+    - 0
+    - 7
+    - 975
+    - 0
+    - 100.0
+    - 40.0
+    - 15.0
+    - true
+    - 0.0
+    - '2015-01-28 19:58:40.580195'
+    - '2015-01-29 00:36:19.586173'
+    - Warrior
+    - 1
+    - 0
+  - - 3
+    - 3
+    - 0
+    - 0
+    - 100
+    - 0
+    - 100.0
+    - 100.0
+    - 15.0
+    - false
+    - 0.0
+    - '2015-01-29 11:23:51.913149'
+    - '2015-01-29 12:28:03.248077'
+    - Hunter
+    - 1
+    - 0
+
+---
+battles:
+  columns:
+  - id
+  - id_first_player
+  - id_second_player
+  - battle_time
+  - battle_log
+  - player_id
+  - created_at
+  - updated_at
+  - starter
+  - target
+  - draw
+  - winner
+  - loser
+  records: 
+  - - 1
+    - 
+    - 
+    - '2015-01-28 20:12:57.823259'
+    - "Battle started by user001! The target is user002! \n\nTurn 1\n ********** \n!\nuser002
+      has 100.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 85.0 HP!\n\nuser001
+      has 100.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 85.0 HP!\n\nTurn
+      2\n ********** \n!\nuser002 has 85.0 HP!\nuser002 received 15.0 damage!\nuser002
+      has now 70.0 HP!\n\nuser001 has 85.0 HP!\nuser001 received 15.0 damage!\nuser001
+      has now 70.0 HP!\n\nTurn 3\n ********** \n!\nuser002 has 70.0 HP!\nuser002 received
+      15.0 damage!\nuser002 has now 55.0 HP!\n\nuser001 has 70.0 HP!\nuser001 received
+      15.0 damage!\nuser001 has now 55.0 HP!\n\nTurn 4\n ********** \n!\nuser002 has
+      55.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 40.0 HP!\n\nuser001
+      has 55.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 40.0 HP!\n"
+    - 
+    - '2015-01-28 20:12:20.606776'
+    - '2015-01-28 20:13:56.773335'
+    - 1
+    - 2
+    - true
+    - 
+    - 
+  - - 2
+    - 
+    - 
+    - '2015-01-29 00:08:41.164455'
+    - "Battle started by user002! The target is user001! \n\nTurn 1\n ********** \n!\nuser001
+      has 40.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 25.0 HP!\n\nuser002
+      has 40.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 25.0 HP!\n\nTurn
+      2\n ********** \n!\nuser001 has 25.0 HP!\nuser001 received 15.0 damage!\nuser001
+      has now 10.0 HP!\n\nuser002 has 25.0 HP!\nuser002 received 15.0 damage!\nuser002
+      has now 10.0 HP!\n\nTurn 3\n ********** \n!\nuser001 has 10.0 HP!\nuser001 received
+      15.0 damage!\nuser001 has now -5.0 HP!\nThe player user002 won the battle.\nTurn
+      4\n ********** \n!The player user002 won the battle."
+    - 
+    - '2015-01-29 00:08:41.893289'
+    - '2015-01-29 00:08:41.893289'
+    - 2
+    - 1
+    - false
+    - 2
+    - 1
+  - - 3
+    - 
+    - 
+    - '2015-01-29 00:08:50.839188'
+    - "Battle started by user002! The target is user001! \n\nTurn 1\n ********** \n!The
+      player user002 won the battle.\nTurn 2\n ********** \n!The player user002 won
+      the battle.\nTurn 3\n ********** \n!The player user002 won the battle.\nTurn
+      4\n ********** \n!The player user002 won the battle."
+    - 
+    - '2015-01-29 00:08:51.163189'
+    - '2015-01-29 00:08:51.163189'
+    - 2
+    - 1
+    - false
+    - 2
+    - 1
+  - - 4
+    - 
+    - 
+    - '2015-01-29 00:22:00.320782'
+    - "Battle started by user002! The target is user001! \n\nTurn 1\n ********** \n!\nuser001
+      has 100.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 85.0 HP!\n\nuser002
+      has 100.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 85.0 HP!\n\nTurn
+      2\n ********** \n!\nuser001 has 85.0 HP!\nuser001 received 15.0 damage!\nuser001
+      has now 70.0 HP!\n\nuser002 has 85.0 HP!\nuser002 received 15.0 damage!\nuser002
+      has now 70.0 HP!\n\nTurn 3\n ********** \n!\nuser001 has 70.0 HP!\nuser001 received
+      15.0 damage!\nuser001 has now 55.0 HP!\n\nuser002 has 70.0 HP!\nuser002 received
+      15.0 damage!\nuser002 has now 55.0 HP!\n\nTurn 4\n ********** \n!\nuser001 has
+      55.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 40.0 HP!\n\nuser002
+      has 55.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 40.0 HP!\n"
+    - 
+    - '2015-01-29 00:22:00.622786'
+    - '2015-01-29 00:22:00.622786'
+    - 2
+    - 1
+    - true
+    - 
+    - 
+  - - 5
+    - 
+    - 
+    - '2015-01-29 00:24:40.244659'
+    - "Battle started by user002! The target is user001! \n\nTurn 1\n ********** \n!\nuser001
+      has 40.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 25.0 HP!\n\nuser002
+      has 40.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 25.0 HP!\n\nTurn
+      2\n ********** \n!\nuser001 has 25.0 HP!\nuser001 received 15.0 damage!\nuser001
+      has now 10.0 HP!\n\nuser002 has 25.0 HP!\nuser002 received 15.0 damage!\nuser002
+      has now 10.0 HP!\n\nTurn 3\n ********** \n!\nuser001 has 10.0 HP!\nuser001 received
+      15.0 damage!\nuser001 has now -5.0 HP!\nThe player user002 won the battle."
+    - 
+    - '2015-01-29 00:24:40.570976'
+    - '2015-01-29 00:24:40.570976'
+    - 2
+    - 1
+    - false
+    - 2
+    - 1
+  - - 6
+    - 
+    - 
+    - '2015-01-29 00:32:44.988361'
+    - "Battle started by user001! The target is user002! \n\nTurn 1\n ********** \n!\nuser002
+      has 100.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 85.0 HP!\n\nuser001
+      has 100.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 85.0 HP!\n\nTurn
+      2\n ********** \n!\nuser002 has 85.0 HP!\nuser002 received 15.0 damage!\nuser002
+      has now 70.0 HP!\n\nuser001 has 85.0 HP!\nuser001 received 15.0 damage!\nuser001
+      has now 70.0 HP!\n\nTurn 2\n ********** \n!\nuser002 has 70.0 HP!\nuser002 received
+      15.0 damage!\nuser002 has now 55.0 HP!\n\nuser001 has 70.0 HP!\nuser001 received
+      15.0 damage!\nuser001 has now 55.0 HP!\n\nTurn 4\n ********** \n!\nuser002 has
+      55.0 HP!\nuser002 received 15.0 damage!\nuser002 has now 40.0 HP!\n\nuser001
+      has 55.0 HP!\nuser001 received 15.0 damage!\nuser001 has now 40.0 HP!\n"
+    - 
+    - '2015-01-29 00:36:19.719634'
+    - '2015-01-29 00:36:19.719634'
+    - 1
+    - 2
+    - true
+    - 
+    - 
+
+---
+pickable_classes:
+  columns:
+  - id
+  - name
+  - description
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Warrior
+    - Can use heavy weapons and armors. Has higher chance of starting battles.
+    - '2015-01-29 11:50:05.783995'
+    - '2015-01-29 12:23:44.745706'
+  - - 2
+    - Death Knight
+    - Caster. Can use heavy weapons and armors. Uses diseases to damage his enemys.
+    - '2015-01-29 11:51:12.905314'
+    - '2015-01-29 11:51:12.905314'
+  - - 3
+    - Mage
+    - Caster. Can use heavy caster weapons. Use elemental skills to damage his enemys.
+    - '2015-01-29 11:52:01.169416'
+    - '2015-01-29 11:52:01.169416'
+  - - 4
+    - Paladin
+    - Uses holy to damage his enemys.
+    - '2015-01-29 11:52:44.033201'
+    - '2015-01-29 12:26:15.601698'
+  - - 5
+    - Druid
+    - Playable in cat form or moonkin form.
+    - '2015-01-29 11:54:29.641314'
+    - '2015-01-29 12:25:50.297713'
+  - - 6
+    - Hunter
+    - Can use heavy weapons. Has a pet to support him in battles.
+    - '2015-01-29 11:55:07.249241'
+    - '2015-01-29 11:55:07.249241'
+  - - 7
+    - Shaman
+    - Uses nature to protect himself. Can heal himself to survive longer.
+    - '2015-01-29 11:55:47.041494'
+    - '2015-01-29 11:55:47.041494'
+  - - 8
+    - Warlock
+    - Caster. Can use his pet to help him in battles. Uses diseases to damage his
+      enemys.
+    - '2015-01-29 11:56:53.057379'
+    - '2015-01-29 11:56:53.057379'
+  - - 9
+    - Priest
+    - Can be playable as shadow or holy. Caster.
+    - '2015-01-29 11:57:23.441394'
+    - '2015-01-29 11:57:23.441394'
+  - - 10
+    - Rogue
+    - Can use stealth to survive longer. Can backstab his enemys. Has higher chance
+      of starting battles.
+    - '2015-01-29 12:23:10.460054'
+    - '2015-01-29 12:23:10.460054'

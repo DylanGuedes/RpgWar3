@@ -1,11 +1,19 @@
-<div class="row">
-  <div class="large-3 columns">
+<center><h1>You need to pick a class first!</h1></center><br><br>
 
-    <%= link_to 'Warrior', { :controller => 'rpg' , :action => 'class_picker', :class_picked => 1 } %>
+<% @classes = PickableClass.all %>
+<div class="row">
+<% @classes.each do |a| %>
+
+  <div class="small-6 columns">
+    <center><h1><%= a.name %></h1></center>
+    <center><%= image_tag("#{a.name}.png") %><br></center>
+    <h5>
+      <%= a.description %>
+    </h5>
+
+    <center><%= link_to "Pick #{a.name}", { :controller => 'rpg' , :action => 'class_picker', :class_picked => a.id }, class: "button success round" %></center>
+    <br><br>
   </div>
-  <div class="large-3 columns">
-    <%= link_to 'Dk', { :controller => 'rpg' , :action => 'class_picker', :class_picked => 2 } %>
-  </div>
-  <div class="large-3 columns">.dass3</div>
-  <div class="large-3 columns">.dass3</div>
+
+<% end %>
 </div>
