@@ -1,0 +1,166 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+margin-left: 20px;
+}.flaticon-balloon5:before {
+	content: "\e000";
+}
+.flaticon-birthday10:before {
+	content: "\e001";
+}
+.flaticon-book133:before {
+	content: "\e002";
+}
+.flaticon-burn2:before {
+	content: "\e003";
+}
+.flaticon-darts:before {
+	content: "\e004";
+}
+.flaticon-double57:before {
+	content: "\e005";
+}
+.flaticon-fingers3:before {
+	content: "\e006";
+}
+.flaticon-game36:before {
+	content: "\e007";
+}
+.flaticon-game37:before {
+	content: "\e008";
+}
+.flaticon-game38:before {
+	content: "\e009";
+}
+.flaticon-game39:before {
+	content: "\e00a";
+}
+.flaticon-game40:before {
+	content: "\e00b";
+}
+.flaticon-game41:before {
+	content: "\e00c";
+}
+.flaticon-game42:before {
+	content: "\e00d";
+}
+.flaticon-game43:before {
+	content: "\e00e";
+}
+.flaticon-game44:before {
+	content: "\e00f";
+}
+.flaticon-game45:before {
+	content: "\e010";
+}
+.flaticon-game46:before {
+	content: "\e011";
+}
+.flaticon-games14:before {
+	content: "\e012";
+}
+.flaticon-games15:before {
+	content: "\e013";
+}
+.flaticon-games16:before {
+	content: "\e014";
+}
+.flaticon-games17:before {
+	content: "\e015";
+}
+.flaticon-games18:before {
+	content: "\e016";
+}
+.flaticon-games19:before {
+	content: "\e017";
+}
+.flaticon-games20:before {
+	content: "\e018";
+}
+.flaticon-games21:before {
+	content: "\e019";
+}
+.flaticon-games22:before {
+	content: "\e01a";
+}
+.flaticon-games23:before {
+	content: "\e01b";
+}
+.flaticon-games24:before {
+	content: "\e01c";
+}
+.flaticon-games25:before {
+	content: "\e01d";
+}
+.flaticon-hexagonal3:before {
+	content: "\e01e";
+}
+.flaticon-like34:before {
+	content: "\e01f";
+}
+.flaticon-male182:before {
+	content: "\e020";
+}
+.flaticon-male183:before {
+	content: "\e021";
+}
+.flaticon-man204:before {
+	content: "\e022";
+}
+.flaticon-medal41:before {
+	content: "\e023";
+}
+.flaticon-medal42:before {
+	content: "\e024";
+}
+.flaticon-olympic20:before {
+	content: "\e025";
+}
+.flaticon-person245:before {
+	content: "\e026";
+}
+.flaticon-person246:before {
+	content: "\e027";
+}
+.flaticon-shield61:before {
+	content: "\e028";
+}
+.flaticon-shield62:before {
+	content: "\e029";
+}
+.flaticon-speech79:before {
+	content: "\e02a";
+}
+.flaticon-star123:before {
+	content: "\e02b";
+}
+.flaticon-star124:before {
+	content: "\e02c";
+}
+.flaticon-top6:before {
+	content: "\e02d";
+}
+.flaticon-trophy14:before {
+	content: "\e02e";
+}
+.flaticon-two169:before {
+	content: "\e02f";
+}
+.flaticon-verification3:before {
+	content: "\e030";
+}
+.flaticon-winner3:before {
+	content: "\e031";
+}

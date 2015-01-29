@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128190510) do
+ActiveRecord::Schema.define(version: 20150129114056) do
 
   create_table "assignments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20150128190510) do
     t.integer  "player_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "pickable_classes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description", default: ""
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "players", force: :cascade do |t|
