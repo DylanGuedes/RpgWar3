@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
   has_one :player
-
+  has_many :comments, dependent: :delete_all
   before_save { self.email = email.downcase }
 
   #validates
