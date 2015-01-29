@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :messages, dependent: :delete_all
   attr_accessor :remember_token
   has_one :player
   has_many :comments, dependent: :delete_all
