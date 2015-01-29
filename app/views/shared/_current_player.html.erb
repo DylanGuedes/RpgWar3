@@ -1,30 +1,22 @@
 <br><br><br><br>
-<div class="player">
+<!-- <div class="player">
 <h4>
   <h2><%= current_user.name %>, level <%= current_player.level %></h2>
+  <center><%= image_tag("#{current_player.rpg_class}.png", :title => "Class: #{current_player.rpg_class}") %></center><br>
+</h2>
   <h1>
-    <div class="player">
-      <%= image_tag('bleeding-heart.png', :title => "Kills") %><%= "  #{current_player.kills}" %>
+    <div class="player"> -->
+<!--       <%= image_tag('bleeding-heart.png', :title => "Kills") %><%= "  #{current_player.kills}" %>
       <%= image_tag('skull-crack.png', :title => "Deaths") %><%= "  #{current_player.deaths}" %>
     </div>
   <%= image_tag('bowman.png', :title => "Experience") %> <%= current_player.exp %>
   <%= image_tag('gold-bar.png', :title => "Gold") %> <%= current_player.gold %><br>
 
   <%= image_tag('wood-axe.png', :title => "Damage") %>  <%= current_player.damage %>
-  <%= image_tag('shield.png', :title => "Defense") %>  <%= current_player.defense %><br>
-   <div class="progress large-12" title = "Hp Max">
+  <%= image_tag('shield.png', :title => "Defense") %>  <%= current_player.defense %><br> -->
+<div class="progress large-12 alert" title = "Hp Max">
   <span class="meter" style="width: <%= current_player.hp_percentual %>%" title="Hp Actual"></span>
-  </div>
-
-    </h1>
-  <h2>
-  <center><%= image_tag("#{current_player.rpg_class}.png", :title => "Class: #{current_player.class}") %></center><br>
-  HP: [<%= current_player.hp_max %>  /  <%= current_player.hp_actual %>]<br>
-</h2>
-<h3>
-  <%= link_to 'Battles played by you', '/rpg/find_battles/'+current_player.id.to_s %>
-  </h3>
-</h4>
 </div>
+
 
 
