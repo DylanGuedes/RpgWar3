@@ -99,5 +99,10 @@ class Player < ActiveRecord::Base
     return x
   end
 
+  def mp_percentual
+    x = 100 * self.mp_actual / self.mp_max
+    return x
+  end
+
 
 end
