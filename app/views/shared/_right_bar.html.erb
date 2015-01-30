@@ -1,0 +1,25 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<% if signed_in? %>
+  <% if current_player.playable? %>
+    <h1><%= link_to 'Your character', '/rpg/players/'+current_player.id.to_s %></h1>
+    <div class="progress large-12 alert" title = "Hp Max">
+      <span class="meter" style="width: <%= current_player.hp_percentual %>%" title="Hp Actual">
+      </span>
+    </div>
+    <div class="progress large-12" title = "Mp Max">
+      <span class="meter" style="width: <%= current_player.mp_percentual %>%" title="Mp Max">
+      </span>
+    </div>
+  <% end %>
+  <h1>
+
+<br>
+<br>
+    <center>Shoutbox</center>
+  </h1>
+  <%= render '/messages/index' %>
+<% end %>

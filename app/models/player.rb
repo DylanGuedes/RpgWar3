@@ -10,6 +10,14 @@ class Player < ActiveRecord::Base
     self.save
   end
 
+  def playable?
+    if self.rpg_class == nil
+      false
+    else
+      true
+    end
+  end
+
   def battles_started
     battles = Battle.where(:starter => self)
     return battles
@@ -88,6 +96,11 @@ class Player < ActiveRecord::Base
   def exp_percentual
     exp_needed = exp_array[self.level+1]
     x = 100 * self.exp / exp_needed
+    return x
+  end
+
+  def mp_percentual
+    x = 100 * self.mp_actual / self.mp_max
     return x
   end
 

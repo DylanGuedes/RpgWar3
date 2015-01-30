@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 #users controller
   get '/signup', to: 'users#new'
 
-
+#players controller
+  get '/rpg/players/:id' => 'players#show'
 #display controller
   get '/help', to: 'display#help'
   get '/about', to: 'display#about'

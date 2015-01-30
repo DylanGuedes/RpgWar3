@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129143856) do
+ActiveRecord::Schema.define(version: 20150129153636) do
 
   create_table "assignments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20150129143856) do
     t.string   "rpg_class"
     t.integer  "level",      default: 1
     t.integer  "safe_tick",  default: 0
+    t.float    "mp_actual",  default: 30.0
+    t.float    "mp_max",     default: 30.0
   end
 
   create_table "users", force: :cascade do |t|
